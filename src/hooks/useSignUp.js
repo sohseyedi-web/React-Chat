@@ -11,8 +11,7 @@ export const useSingUpUser = () => {
       queryClient.invalidateQueries({ queryKey: ["user-submit"] });
     },
     onError: (error) => {
-        console.log(error)
-      toast.error(error.message);
+      toast.error(error.response.data.error);
     },
   });
 
