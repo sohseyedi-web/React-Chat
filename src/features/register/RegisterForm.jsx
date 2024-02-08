@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useSingUpUser } from "../../hooks/useSignUp";
+import { useSingUpUser } from "../../hooks/useUser";
 import RadioInputGroup from "../../ui/RadioInputGroup";
 import TextField from "./../../ui/TextField";
 

@@ -1,6 +1,6 @@
 import http from "./http";
 
-export const loginUser = (data) => {
+export const signinUser = (data) => {
   return http.post("/auth/login", data).then((res) => res.data);
 };
 export const signupUser = (data) => {
