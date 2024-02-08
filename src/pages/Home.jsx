@@ -12,9 +12,6 @@ const Home = () => {
     navigate("/login");
   };
 
-  const { user } = useGetUser();
-
-
   return <button onClick={logoutHandler}>خرو ج</button>;
 };
 

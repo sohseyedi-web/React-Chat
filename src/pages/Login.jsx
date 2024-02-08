@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "../features/login/LoginForm";
-import { useAuthtorize } from "./../hooks/useAuthrozie";
+import { useGetUser } from "../hooks/useUser";
 
 const Login = () => {
-  const { isAuthenticated, isLoading, user } = useAuthtorize();
+  const { user, isLoading } = useGetUser();
   const navigate = useNavigate();
+
   useEffect(() => {
-    if (isAuthenticated) return navigate(`/`);
-  }, [isAuthenticated, user, isLoading, navigate]);
+    if (user) return navigate("/");
+  }, [user, isLoading, navigate]);
 
   return (
     <div className="flex items-center">

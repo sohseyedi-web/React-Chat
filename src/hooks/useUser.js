@@ -46,6 +46,6 @@ export const useGetUser = () => {
 
   const { user } = data || {};
 
-  return { user, isLoading };
+  return { user, isLoading,data };
 };
 
