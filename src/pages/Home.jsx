@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import { toast } from "react-hot-toast";
+import { Navigate, useNavigate } from "react-router-dom";
+import { logout } from "../services/authService";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const navigate = useNavigate();
+  const logoutHandler = async () => {
+    await logout();
+    toast.success("خارج شدی");
+    navigate("/login");
+  };
 
-export default Home
+  return <button onClick={logoutHandler}>خرو ج</button>;
+};
+
+export default Home;
