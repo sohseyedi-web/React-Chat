@@ -1,7 +1,14 @@
-import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import RegisterForm from "../features/register/RegisterForm";
+import { useAuthtorize } from "../hooks/useAuthrozie";
 
 const Register = () => {
+  const { isAuthenticated, isLoading, user } = useAuthtorize();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isAuthenticated) return navigate(`/`);
+  }, [isAuthenticated, user, isLoading, navigate]);
   return (
     <div className="flex items-center">
       <div className="lg:w-[30%] w-full h-screen flex items-center justify-center">

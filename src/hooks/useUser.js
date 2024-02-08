@@ -1,6 +1,10 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import { signupUser, signinUser } from "../services/authService";
+import {
+  signupUser,
+  signinUser,
+  getUserProfile,
+} from "../services/authService";
 
 export const useSingUpUser = () => {
   const queryClient = useQueryClient();
@@ -32,3 +36,16 @@ export const useLoginUser = () => {
 
   return { loginUser, isLoading };
 };
+
+export const useGetUser = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["user-submit"],
+    queryFn: getUserProfile,
+    retry: false,
+  });
+
+  const { user } = data || {};
+
+  return { user, isLoading };
+};
+

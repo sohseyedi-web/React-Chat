@@ -9,3 +9,7 @@ export const signupUser = (data) => {
 export const logout = () => {
   return http.post("/auth/logout").then((res) => res.data);
 };
+
+export const getUserProfile = () => {
+  return http.get("/users/profile").then(({data}) => data.data);
+};
