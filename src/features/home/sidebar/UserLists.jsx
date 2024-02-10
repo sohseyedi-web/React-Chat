@@ -1,7 +1,5 @@
-import { toast } from "react-hot-toast";
 import { useGetAllUsers, useGetUser } from "../../../hooks/useUser";
 import Loading from "./../../../ui/Loading";
-import useHandleUsers from "./../../../zustand/useHandleUsers";
 import User from "./User";
 
 const UserLists = () => {
@@ -17,7 +15,7 @@ const UserLists = () => {
         <img
           src={user?.profilePic}
           alt={user?.fullName}
-          className="w-10 h-10"
+          className="w-10 h-10 object-contain"
         />
         <h6 className="text-xl font-semibold">{user?.username && "You"}</h6>
       </div>
@@ -34,4 +32,3 @@ const UserLists = () => {
 };
 
 export default UserLists;
-
