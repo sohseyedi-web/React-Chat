@@ -11,8 +11,8 @@ export const logout = () => {
 };
 
 export const getUserProfile = () => {
-  return http.get("/users/profile").then((res) => res.data.data);
+  return http.get("/users/profile").then(({ data }) => data.data);
 };
 export const getAllUsers = () => {
-  return http.get("/users").then((res) => res.data);
+  return http.get("/users/all").then((res) => res.data);
 };

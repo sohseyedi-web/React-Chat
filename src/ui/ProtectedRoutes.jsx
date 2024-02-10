@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthtorize } from "../hooks/useAuthrozie";
 import { useGetUser } from "../hooks/useUser";
 import Loading from "./Loading";
 

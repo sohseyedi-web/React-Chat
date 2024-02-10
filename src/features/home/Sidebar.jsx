@@ -7,6 +7,7 @@ import UserLists from "./UserLists";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+
   const logoutHandler = async () => {
     await logout();
     toast.success("خارج شدی");

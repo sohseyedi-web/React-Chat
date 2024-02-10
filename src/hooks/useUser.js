@@ -47,15 +47,5 @@ export const useGetUser = () => {
 
   const { user } = data || {};
 
-  return { user, isLoading, data };
-};
-
-export const useGetAllUsers = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["user-submit"],
-    queryFn: getAllUsers,
-    retry: false,
-  });
-
-  return { data, isLoading };
+  return { isLoading, user };
 };
