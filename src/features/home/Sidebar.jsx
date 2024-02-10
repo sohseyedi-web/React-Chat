@@ -7,11 +7,12 @@ import UserLists from "./UserLists";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  
 
   const logoutHandler = async () => {
     await logout();
-    toast.success("خارج شدی");
     navigate("/login");
+    toast.success("خارج شدی");
   };
   return (
     <div className="w-[260px] bg-slate-200 border-r flex flex-col px-1 py-3 relative">

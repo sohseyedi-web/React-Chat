@@ -7,6 +7,7 @@ import TextField from "./../../ui/TextField";
 
 const RegisterForm = () => {
   const { isCreating, createUser } = useSingUpUser();
+
   const navigate = useNavigate();
   const {
     register,

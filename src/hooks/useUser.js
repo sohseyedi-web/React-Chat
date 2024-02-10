@@ -49,3 +49,14 @@ export const useGetUser = () => {
 
   return { isLoading, user };
 };
+
+export const useGetAllUsers = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["user"],
+    queryFn: getAllUsers,
+    retry: false,
+  });
+
+
+  return { isLoading, data };
+}
