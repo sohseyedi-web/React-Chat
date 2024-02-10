@@ -1,10 +1,12 @@
 import React from "react";
 import { useGetAllUsers, useGetUser } from "../../hooks/useUser";
-import { getAllUsers } from "../../services/authService";
+import Loading from "./../../ui/Loading";
 
 const UserLists = () => {
-  const { data } = useGetAllUsers();
+  const { data, isLoading } = useGetAllUsers();
   const { user } = useGetUser();
+
+  if (isLoading) return <Loading />;
 
   return (
     <div className="space-y-3 overflow-y-auto h-[800px]">
