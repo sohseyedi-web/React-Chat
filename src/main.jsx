@@ -4,17 +4,17 @@ import App from "./App.jsx";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { SocketProvider } from "./context/SocketProvider.jsx";
+import ChatProvider from "./context/ChatProvider.jsx";
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <SocketProvider>
+      <ChatProvider>
         <App />
         <Toaster />
-      </SocketProvider>
+      </ChatProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

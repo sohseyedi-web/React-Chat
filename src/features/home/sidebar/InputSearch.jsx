@@ -35,7 +35,7 @@ const InputSearch = () => {
         dir="ltr"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="input input-bordered h-[45px] w-full focus:bg-white bg-gray-100 dark:bg-slate-900 pl-8 transition-all duration-300 outline-none"
+        className="input input-bordered h-[45px] w-full focus:bg-white bg-gray-100 dark:bg-slate-800 pl-8 transition-all duration-300 outline-none"
       />
     </form>
   );

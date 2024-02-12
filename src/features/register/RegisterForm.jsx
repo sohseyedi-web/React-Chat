@@ -91,7 +91,7 @@ const RegisterForm = () => {
           watch={watch}
           errors={errors}
         />
-        <button className="mt-2 btn bg-blue-600 btn-active w-full text-lg h-[45px] text-white">
+        <button className="mt-2 btn dark:border-none bg-blue-600 btn-active w-full text-lg h-[45px] text-white">
           {isCreating ? "لطفا صبر کنید" : "ثبت نام "}
         </button>
       </form>

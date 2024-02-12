@@ -47,7 +47,7 @@ const LoginForm = () => {
           label={"رمز عبور"}
         />
 
-        <button className="mt-2 btn bg-indigo-600 btn-active w-full text-lg h-[45px] text-white">
+        <button className="mt-2 btn bg-indigo-600 border-none btn-active w-full text-lg h-[45px] text-white">
           {isLoading ? "لطفا صبر کنید" : "ورود"}
         </button>
       </form>

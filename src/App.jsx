@@ -3,7 +3,6 @@ import Auth from "./pages/Auth";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ProtectedRoutes from "./ui/ProtectedRoutes";
-
 function App() {
   return (
     <BrowserRouter>

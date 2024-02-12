@@ -1,4 +1,4 @@
-@import url('https://v1.fontapi.ir/css/Vazir');
+@import url("https://v1.fontapi.ir/css/Vazir");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,11 +10,13 @@
   font-family: Vazir, system-ui;
 }
 
-body{
+body {
   background-color: #f3f4f6;
 }
 
-
-
-
-
+@layer base {
+  body {
+    @apply bg-[#f3f4f6];
+    @apply dark:bg-slate-800 dark:text-gray-200 bg-[#f3f4f6] text-gray-800;
+  }
+}
