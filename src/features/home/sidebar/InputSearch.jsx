@@ -15,6 +15,10 @@ const InputSearch = () => {
     if (search.length < 3) {
       return toast.error("بیش از سه کلمه لازم است");
     }
+    const result = data?.find((user) =>
+      user.username.toLowerCase().includes(search.toLowerCase())
+    );
+    setSelectedUser(result);
   };
 
   return (
