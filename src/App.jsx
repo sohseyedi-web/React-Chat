@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Auth from "./pages/Auth";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
-import Register from "./pages/Register";
 import ProtectedRoutes from "./ui/ProtectedRoutes";
 
 function App() {
@@ -17,8 +16,7 @@ function App() {
             </ProtectedRoutes>
           }
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
