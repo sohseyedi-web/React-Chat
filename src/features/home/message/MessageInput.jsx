@@ -1,15 +1,34 @@
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 import { TbSend } from "react-icons/tb";
+import { useSendMessageUser } from "../../../hooks/useMessage";
+import { sendMessage } from "../../../services/messageService";
+import Loading from "./../../../ui/Loading";
 
-const MessageInput = () => {
+const MessageInput = ({ user }) => {
+  const [message, setMessage] = useState("");
+  const { isUpdating, sendMessages } = useSendMessageUser();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!message.length) return;
+    const id = user?._id;
+    const data = await sendMessage(id, message);
+    toast.success(data.mesage);
+    setMessage("");
+  };
+
   return (
-    <form className="w-full relative">
+    <form className="w-full relative" onSubmit={handleSubmit}>
       <input
         type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
         placeholder="Message...."
         className="input input-bordered h-[60px] w-full focus:bg-white bg-gray-100 dark:bg-slate-900 px-2 text-lg transition-all duration-300 outline-none"
       />
       <button className="absolute right-2 top-2 btn btn-circle btn-success text-white">
-        <TbSend size={30}/>
+        {isUpdating ? <Loading /> : <TbSend size={30} />}
       </button>
     </form>
   );

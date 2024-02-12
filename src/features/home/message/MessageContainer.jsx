@@ -1,7 +1,12 @@
 import * as RiIcon from "react-icons/ri";
+import { useGetMessageById } from "../../../hooks/useMessage";
 import MessageInput from "./MessageInput";
 
 const MessageContainer = ({ user }) => {
+
+  const {data} = useGetMessageById(user?._id);
+
+  console.log(data)
   return (
     <section className="flex flex-col min-h-screen">
       <header className="flex items-center justify-between py-3.5 px-2 shadow-sm border-b">
@@ -13,7 +18,7 @@ const MessageContainer = ({ user }) => {
       </header>
       <div className="flex-1">sss</div>
       <footer className="flex w-full items-center justify-between py-2 px-2 border-t">
-        <MessageInput/>
+        <MessageInput user={user}/>
       </footer>
     </section>
   );

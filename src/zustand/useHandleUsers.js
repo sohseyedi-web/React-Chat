@@ -5,6 +5,8 @@ const useHandleUsers = create((set) => ({
   setSelectedUser: (selectedUser) => set({ selectedUser }),
   isActive: true,
   setIsActive: (isActive) => set({ isActive }),
+  messages: [],
+  setMessages: (messages) => set({ messages }),
 }));
 
 export default useHandleUsers;
