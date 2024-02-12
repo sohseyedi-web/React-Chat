@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { TiMessages } from "react-icons/ti";
-import useHandleUsers from "../../zustand/useHandleUsers";
-import MessageContainer from "./message/MessageContainer";
+import useHandleUsers from "../../../zustand/useHandleUsers";
+import { TiMessages } from 'react-icons/ti';
+import MessageContainer from "./MessageContainer";
 
-const Messages = () => {
+const MessageLayout = () => {
   const { selectedUser, setSelectedUser } = useHandleUsers();
 
   useEffect(() => {
@@ -21,10 +21,10 @@ const Messages = () => {
           </div>
         </div>
       ) : (
-        <MessageContainer user={selectedUser}/>
+        <MessageContainer user={selectedUser} />
       )}
     </div>
   );
 };
 
-export default Messages;
+export default MessageLayout;

@@ -1,5 +1,5 @@
 import * as RiIcon from "react-icons/ri";
-import Messages from "../features/home/Messages";
+import MessageLayout from "../features/home/message/MessageLayout";
 import Sidebar from "../features/home/sidebar/Sidebar";
 import useHandleUsers from "../zustand/useHandleUsers";
 
@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <section className="flex mx-auto w-full h-screen relative">
       <Sidebar />
-      <Messages />
+      <MessageLayout />
       {!isActive ? (
         <div
           onClick={() => setIsActive(!isActive)}
