@@ -26,11 +26,13 @@ const MessageContainer = ({ user }) => {
       </header>
       <div className="flex-1">
         {!data?.length ? (
-          <div className="flex h-screen justify-center items-center px-3 rounded-md bg-gray-400 text-gray-950 shadow py-1">
+          <div className="flex justify-center items-center px-3 rounded-md bg-gray-400 text-gray-950 shadow py-1">
             هیچ پیامی وجود ندارد
           </div>
         ) : (
-          data?.map((item) => <Message item={item} key={item?._id} />)
+          data?.map((item) => (
+            <Message item={item} key={item?._id} userSelect={user} />
+          ))
         )}
       </div>
       <footer className="flex w-full items-center justify-between py-2 px-2 border-t">
