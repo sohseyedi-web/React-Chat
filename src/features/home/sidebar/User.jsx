@@ -1,6 +1,6 @@
 import useHandleUsers from "../../../zustand/useHandleUsers";
 
-const User = ({ user, userId }) => {
+const User = ({ user }) => {
   const { selectedUser, setSelectedUser } = useHandleUsers();
   const isSelect = selectedUser?._id === user?._id;
 

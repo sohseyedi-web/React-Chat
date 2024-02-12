@@ -18,7 +18,9 @@ const InputSearch = () => {
     const result = data?.find((user) =>
       user.username.toLowerCase().includes(search.toLowerCase())
     );
+    if (!result) toast.error("کاربری یافت نشد");
     setSelectedUser(result);
+    setSearch("");
   };
 
   return (

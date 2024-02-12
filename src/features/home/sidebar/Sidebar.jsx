@@ -1,6 +1,5 @@
 import { toast } from "react-hot-toast";
 import * as RiIcon from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
 import { logout } from "../../../services/authService";
 import InputSearch from "./InputSearch";
 import UserLists from "./UserLists";
@@ -9,7 +8,6 @@ import useHandleUsers from "../../../zustand/useHandleUsers";
 import { useEffect } from "react";
 
 const Sidebar = () => {
-  const navigate = useNavigate();
   const { isActive, setIsActive } = useHandleUsers();
 
   useEffect(() => {
@@ -24,7 +22,7 @@ const Sidebar = () => {
 
   const logoutHandler = async () => {
     await logout();
-    navigate("/login");
+    document.location("/login");
     toast.success("خارج شدی");
   };
   return (
