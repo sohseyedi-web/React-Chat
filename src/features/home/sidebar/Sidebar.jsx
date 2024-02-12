@@ -6,10 +6,21 @@ import InputSearch from "./InputSearch";
 import UserLists from "./UserLists";
 import Back from "../../../ui/Back";
 import useHandleUsers from "../../../zustand/useHandleUsers";
+import { useEffect } from "react";
 
 const Sidebar = () => {
   const navigate = useNavigate();
   const { isActive, setIsActive } = useHandleUsers();
+
+  useEffect(() => {
+    window.addEventListener("resize", () =>
+      setIsActive(window.innerWidth > 1024)
+    );
+    return () =>
+      window.removeEventListener("resize", () =>
+        setIsActive(window.innerWidth > 1024)
+      );
+  }, [isActive]);
 
   const logoutHandler = async () => {
     await logout();
@@ -22,7 +33,7 @@ const Sidebar = () => {
       <aside
         className={`${
           isActive ? "w-[280px] left-0 top-0" : "-left-24 w-0 top-0"
-        } fixed z-50 lg:relative lg:bg-transparent bg-gray-200 h-screen lg:h-auto border-slate-300 border-r p-2 space-y-3 transition-all duration-300`}
+        } fixed z-50 lg:relative lg:bg-gray-200 bg-gray-300 h-screen lg:h-auto border-slate-300 border-r p-2 space-y-3 transition-all duration-300`}
       >
         <InputSearch />
         <hr className="border-slate-900 my-3 " />

@@ -7,7 +7,7 @@ const Home = () => {
   const { isActive, setIsActive } = useHandleUsers();
 
   return (
-    <section className="flex mx-auto w-full h-screen relative">
+    <section className="flex mx-auto w-full h-screen relative overflow-hidden">
       <Sidebar />
       <MessageLayout />
       {!isActive ? (
