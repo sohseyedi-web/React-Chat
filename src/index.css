@@ -20,3 +20,11 @@ body {
     @apply dark:bg-slate-800 dark:text-gray-200 bg-[#f3f4f6] text-gray-800;
   }
 }
+.scroll::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 0.1rem;
+}

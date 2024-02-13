@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import * as RiIcon from "react-icons/ri";
 import { useSocketContext } from "../../../context/SocketProvider";
 import { useGetMessageById } from "../../../hooks/useMessage";
@@ -10,10 +11,18 @@ const MessageContainer = ({ user }) => {
   const { onlineUsers } = useSocketContext();
   const isOnline = onlineUsers.includes(user?._id);
 
+  const lastMessageRef = useRef();
+
+  useEffect(() => {
+    setTimeout(() => {
+      lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }, [data]);
+
   if (isLoading) return <Loading />;
 
   return (
-    <section className="flex flex-col min-h-screen">
+    <section className="flex flex-col h-full">
       <header className="flex items-center justify-between py-3.5 px-2 shadow-sm border-b dark:border-slate-700">
         <div className="flex items-center gap-x-2">
           <img src={user?.profilePic} alt={user?.name} className="w-10 h-10" />
@@ -24,10 +33,10 @@ const MessageContainer = ({ user }) => {
         </div>
         <RiIcon.RiSearchLine size={26} />
       </header>
-      <div className="flex-1">
+      <div className="flex-1 overflow-y-auto scroll px-2">
         {!data?.length ? (
-          <div className="flex justify-center items-center px-3 rounded-md bg-gray-400 text-gray-950 shadow py-1">
-            هیچ پیامی وجود ندارد
+          <div className="flex justify-center h-screen items-center text-2xl font-semibold">
+            <span className="bg-gray-200 px-4 py-1 rounded-lg shadow">... هیچ پیامی وجود ندارد</span>
           </div>
         ) : (
           data?.map((item) => (

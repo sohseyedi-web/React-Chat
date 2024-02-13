@@ -13,8 +13,8 @@ const MessageInput = ({ user }) => {
     e.preventDefault();
     if (!message.length) return;
     const id = user?._id;
-    const data = await sendMessage(id, message);
-    toast.success(data.mesage);
+    await sendMessage(id, message);
+    toast.success("پیام ارسال شد");
     setMessage("");
   };
 

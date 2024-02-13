@@ -20,7 +20,7 @@ const Message = ({ item, userSelect }) => {
       <div className={`chat-bubble text-white ${bubbleBgColor} pb-2`}>
         {item?.message}
       </div>
-      <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">
+      <div className="chat-footer opacity-50 text-xs flex gap-1 items-center mt-2">
         {formatDate}
       </div>
     </div>
