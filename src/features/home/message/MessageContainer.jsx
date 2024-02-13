@@ -14,9 +14,9 @@ const MessageContainer = ({ user }) => {
   const lastMessageRef = useRef();
 
   useEffect(() => {
-    setTimeout(() => {
-      lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollTop = lastMessageRef.current.scrollHeight;
+    }
   }, [data]);
 
   if (isLoading) return <Loading />;
@@ -33,10 +33,12 @@ const MessageContainer = ({ user }) => {
         </div>
         <RiIcon.RiSearchLine size={26} />
       </header>
-      <div className="flex-1 overflow-y-auto scroll px-2">
+      <div className="flex-1 overflow-y-auto scroll px-2" ref={lastMessageRef}>
         {!data?.length ? (
           <div className="flex justify-center h-screen items-center text-2xl font-semibold">
-            <span className="bg-gray-200 px-4 py-1 rounded-lg shadow">... هیچ پیامی وجود ندارد</span>
+            <span className="bg-gray-200 px-4 py-1 rounded-lg shadow">
+              ... هیچ پیامی وجود ندارد
+            </span>
           </div>
         ) : (
           data?.map((item) => (
