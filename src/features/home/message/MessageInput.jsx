@@ -2,7 +2,6 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { TbSend } from "react-icons/tb";
 import { useSendMessageUser } from "../../../hooks/useMessage";
-import { sendMessage } from "../../../services/messageService";
 import Loading from "./../../../ui/Loading";
 
 const MessageInput = ({ user }) => {
@@ -13,8 +12,7 @@ const MessageInput = ({ user }) => {
     e.preventDefault();
     if (!message.length) return;
     const id = user?._id;
-    await sendMessage(id, message);
-    toast.success("پیام ارسال شد");
+    await sendMessages({ id, message });
     setMessage("");
   };
 

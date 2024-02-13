@@ -1,6 +1,6 @@
 import http from "./http";
 
-export const sendMessage = (id, message) => {
+export const sendMessage = ({ id, message }) => {
   return http
     .post(
       `/messages/send/${id}`,
