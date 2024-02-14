@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useLoginUser } from "../../hooks/useUser";
 import TextField from "../../ui/TextField";
 
-const LoginForm = () => {
+const LoginForm = ({setActive}) => {
   const { isLoading, loginUser } = useLoginUser();
   const navigate = useNavigate();
   const {
@@ -18,24 +18,21 @@ const LoginForm = () => {
     navigate("/");
   };
   return (
-    <div className="w-full py-2">
-      <form className="space-y-2" onSubmit={handleSubmit(onSubmitForm)}>
+    <div className="w-full pt-3">
+      <form className="space-y-5" onSubmit={handleSubmit(onSubmitForm)}>
         <TextField
           register={register}
           errors={errors}
           name="username"
-          required
           placeHolder="نام کاربری"
           validationSchema={{
             required: "نام کاربری ضرروی است",
           }}
-          label={"نام کاربری "}
         />
         <TextField
           register={register}
           errors={errors}
           name="password"
-          required
           placeHolder="رمز عبور"
           validationSchema={{
             required: "رمز عبور ضرروی است",
@@ -44,13 +41,21 @@ const LoginForm = () => {
               message: " رمز عبور کوتاه است",
             },
           }}
-          label={"رمز عبور"}
         />
 
-        <button className="mt-2 btn bg-indigo-600 border-none btn-active w-full text-lg h-[45px] text-white">
+        <button className="mt-2 btn bg-indigo-600 border-none btn-active rounded-2xl w-full text-lg h-[45px] text-white">
           {isLoading ? "لطفا صبر کنید" : "ورود"}
         </button>
       </form>
+      <hr className="border-slate-300 dark:border-slate-700 my-3" />
+      <div className="space-y-3">
+        <div className="flex items-center justify-center gap-x-1">
+          <span className="font-bold cursor-pointer" onClick={() => setActive(true)}>
+            میخواهم وارد شوم
+          </span>
+          <span className="cursor-pointer">نام کاربری دارم</span>
+        </div>
+      </div>
     </div>
   );
 };
