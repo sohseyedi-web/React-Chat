@@ -8,11 +8,11 @@ import Back from "../../../ui/Back";
 import useHandleUsers from "../../../zustand/useHandleUsers";
 import { useEffect } from "react";
 import ThemeSwitch from "../../../ui/ThemeSwitch";
+import { useLogOut } from "./../../../hooks/useUser";
 
 const Sidebar = () => {
-  const navigate = useNavigate();
   const { isActive, setIsActive } = useHandleUsers();
-  
+  const { logOut } = useLogOut();
 
   useEffect(() => {
     window.addEventListener("resize", () =>
@@ -25,8 +25,7 @@ const Sidebar = () => {
   }, [isActive]);
 
   const logoutHandler = async () => {
-    await logout();
-    navigate("/auth");
+    await logOut();
     toast.success("خارج شدی");
   };
   return (
@@ -47,7 +46,7 @@ const Sidebar = () => {
           >
             <RiIcon.RiShutDownLine size={26} />
           </button>
-          <ThemeSwitch/>
+          <ThemeSwitch />
         </div>
         <div
           onClick={() => setIsActive(!isActive)}

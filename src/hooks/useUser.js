@@ -1,10 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import {
   signupUser,
   signinUser,
   getUserProfile,
   getAllUsers,
+  logout,
 } from "../services/authService";
 
 export const useSingUpUser = () => {
@@ -60,3 +62,20 @@ export const useGetAllUsers = () => {
 
   return { isLoading, data };
 }
+
+export const useLogOut = () => {
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+  const { mutateAsync: logOut, isPending } = useMutation({
+    mutationFn: logout,
+    onSuccess: () => {
+      queryClient.removeQueries();
+      navigate("/", { replace: true });
+    },
+    onError: (err) => {
+      toast.error(err?.response?.data?.message);
+    },
+  });
+
+  return { logOut, isPending };
+};
