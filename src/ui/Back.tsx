@@ -1,7 +1,7 @@
 import React from "react";
 import useHandleUsers from "../zustand/useHandleUsers";
 
-const Back = () => {
+const Back: React.FC = () => {
   const { isActive, setIsActive } = useHandleUsers();
 
   return (

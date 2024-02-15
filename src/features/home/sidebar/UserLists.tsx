@@ -1,5 +1,7 @@
+import React from "react";
+
 import { useGetAllUsers, useGetUser } from "../../../hooks/useUser";
-import Loading from "./../../../ui/Loading";
+import Loading from "../../../ui/Loading";
 import User from "./User";
 
 const UserLists = () => {
@@ -19,13 +21,8 @@ const UserLists = () => {
         />
         <h6 className="text-xl font-semibold">{user?.username && "You"}</h6>
       </div>
-      {data?.map((user, index) => (
-        <User
-          user={user}
-          key={user?._id}
-          userId={user?._id}
-          lastIndex={index === data?.length - 1}
-        />
+      {data?.map((user) => (
+        <User user={user} key={user?._id} />
       ))}
     </div>
   );

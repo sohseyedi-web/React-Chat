@@ -1,7 +1,10 @@
+import React from "react";
+import { UserTypes } from "../../../utils/types";
 import useHandleUsers from "../../../zustand/useHandleUsers";
 
-const User = ({ user }) => {
+const User = ({ user }: { user: UserTypes }) => {
   const { selectedUser, setSelectedUser } = useHandleUsers();
+
   const isSelect = selectedUser?._id === user?._id;
 
   return (

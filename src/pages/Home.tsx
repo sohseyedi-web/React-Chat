@@ -1,3 +1,4 @@
+import React from 'react'
 import * as RiIcon from "react-icons/ri";
 import MessageLayout from "../features/home/message/MessageLayout";
 import Sidebar from "../features/home/sidebar/Sidebar";

@@ -1,15 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import * as RiIcon from "react-icons/ri";
 import { useGetAllUsers } from "../../../hooks/useUser";
 import useHandleUsers from "../../../zustand/useHandleUsers";
 
 const InputSearch = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
   const { setSelectedUser } = useHandleUsers();
   const { data } = useGetAllUsers();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!search) return;
     if (search.length < 3) {

@@ -1,12 +1,13 @@
+import React from "react";
 import { toast } from "react-hot-toast";
 import * as RiIcon from "react-icons/ri";
 import InputSearch from "./InputSearch";
 import UserLists from "./UserLists";
-import Back from "../../../ui/Back";
 import useHandleUsers from "../../../zustand/useHandleUsers";
 import { useEffect } from "react";
 import ThemeSwitch from "../../../ui/ThemeSwitch";
-import { useLogOut } from "./../../../hooks/useUser";
+import { useLogOut } from "../../../hooks/useUser";
+import Back from "../../../ui/Back";
 
 const Sidebar = () => {
   const { isActive, setIsActive } = useHandleUsers();

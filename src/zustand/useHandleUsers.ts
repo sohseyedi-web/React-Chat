@@ -1,9 +1,10 @@
 import { create } from "zustand";
+import { UserTypes } from "../utils/types";
 
 interface HandleUserType {
-  selectedUser: null;
+  selectedUser: UserTypes | null;
   isActive: boolean;
-  setSelectedUser: (selectedUser: null) => void;
+  setSelectedUser: (selectedUser: UserTypes | null) => void;
   setIsActive: (isActive: boolean) => void;
 }
 

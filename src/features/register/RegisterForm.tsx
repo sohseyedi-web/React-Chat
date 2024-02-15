@@ -1,11 +1,11 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, type FieldValues } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useSingUpUser } from "../../hooks/useUser";
 import RadioInputGroup from "../../ui/RadioInputGroup";
-import TextField from "./../../ui/TextField";
+import TextField from "../../ui/TextField";
 
-const RegisterForm = ({setActive}) => {
+const RegisterForm = ({ setActive }) => {
   const { isCreating, createUser } = useSingUpUser();
 
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const RegisterForm = ({setActive}) => {
     watch,
   } = useForm();
 
-  const onSubmitForm = async (data) => {
+  const onSubmitForm = async (data: FieldValues) => {
     await createUser(data);
     navigate("/");
   };
@@ -90,10 +90,13 @@ const RegisterForm = ({setActive}) => {
       <hr className="border-slate-300 dark:border-slate-700 my-3" />
       <div className="space-y-3">
         <div className="flex items-center justify-center gap-x-1">
-          <span className="font-bold cursor-pointer" onClick={() => setActive(false)}>
+          <span
+            className="font-bold cursor-pointer"
+            onClick={() => setActive(false)}
+          >
             ثبت نام
           </span>
-          <span >حساب کاربری ندارید؟</span>
+          <span>حساب کاربری ندارید؟</span>
         </div>
         <div className="flex items-center justify-center gap-x-1">
           <span className="font-bold cursor-pointer">ایجاد رمز جدید</span>
