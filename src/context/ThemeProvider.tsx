@@ -1,9 +1,15 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
-const ThemeContext = createContext();
+interface ThemeType {
+  dark: string;
+  setDark: React.Dispatch<React.SetStateAction<string>>;
+}
 
-export function ThemeProvider({ children }) {
-  const [dark, setDark] = useState("light");
+const ThemeContext = createContext<ThemeType | undefined>(undefined);
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [dark, setDark] = useState<string>("light");
+
   useEffect(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setDark("dark");
