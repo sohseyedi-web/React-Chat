@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetUser } from "../hooks/useUser";
 import Loading from "./Loading";
 
-const ProtectedRoutes = ({ children }) => {
+const ProtectedRoutes = ({ children }: { children: React.ReactNode }) => {
   const { user, isLoading } = useGetUser();
   const navigate = useNavigate();
   useEffect(() => {

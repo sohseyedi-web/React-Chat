@@ -1,3 +1,4 @@
+import React from "react";
 import * as RiIcon from "react-icons/ri";
 import { useTheme } from "../context/ThemeProvider";
 
