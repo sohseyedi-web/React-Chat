@@ -10,7 +10,7 @@ import { useGetUser } from "../hooks/useUser";
 
 interface SocketTypes {
   socket: Socket | null;
-  onlineUsers: string[];
+  onlineUsers: string[] | undefined;
 }
 
 const SocketContext = createContext<SocketTypes | undefined>(undefined);

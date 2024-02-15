@@ -1,14 +1,13 @@
-import { useState } from "react";
-import { toast } from "react-hot-toast";
+import React,{ useState } from "react";
 import { TbSend } from "react-icons/tb";
 import { useSendMessageUser } from "../../../hooks/useMessage";
-import Loading from "./../../../ui/Loading";
+import Loading from "../../../ui/Loading";
 
 const MessageInput = ({ user }) => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<string>("");
   const { isUpdating, sendMessages } = useSendMessageUser();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!message.length) return;
     const id = user?._id;

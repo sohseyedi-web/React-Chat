@@ -14,7 +14,7 @@ export type DataMessageTypes = {
   senderId: string;
   receiverId: string;
   message: string;
-  createdAt?: Date;
+  createdAt: Date | undefined;
   updatedAt?: Date;
 };
 export type ConversationsTypes = {

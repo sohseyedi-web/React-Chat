@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import React,{ useEffect } from "react";
 import useHandleUsers from "../../../zustand/useHandleUsers";
 import { TiMessages } from "react-icons/ti";
 import MessageContainer from "./MessageContainer";
-import { useGetUser } from './../../../hooks/useUser';
+import { useGetUser } from '../../../hooks/useUser';
 
 const MessageLayout = () => {
   const { selectedUser, setSelectedUser } = useHandleUsers();

@@ -1,4 +1,4 @@
-export function convertTime(dateString: string) {
+export function convertTime(dateString: Date | any) {
   const date = new Date(dateString);
   const hours = padZero(date.getHours());
   const minutes = padZero(date.getMinutes());

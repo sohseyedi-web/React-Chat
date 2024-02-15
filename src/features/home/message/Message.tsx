@@ -1,10 +1,17 @@
 import React from "react";
 import { convertTime } from "../../../utils/convertTime";
-import { useGetUser } from "./../../../hooks/useUser";
+import { useGetUser } from "../../../hooks/useUser";
+import { UserTypes, DataMessageTypes } from "../../../utils/types";
 
-const Message = ({ item, userSelect }) => {
+const Message = ({
+  item,
+  userSelect,
+}: {
+  item: DataMessageTypes;
+  userSelect: UserTypes;
+}) => {
   const { user } = useGetUser();
-  const fromMe = item?.senderId === user?._id;
+  const fromMe: string | boolean = item?.senderId === user?._id;
   const profilePic = fromMe ? user?.profilePic : userSelect?.profilePic;
   const formatDate = convertTime(item?.createdAt);
   const chatClassName = fromMe ? "chat-end" : "chat-start";
@@ -14,7 +21,7 @@ const Message = ({ item, userSelect }) => {
     <div className={`chat ${chatClassName}`} key={item?._id}>
       <div className="chat-image avatar">
         <div className="h-10 w-10">
-        <img src={profilePic} alt={fromMe} />
+          <img src={profilePic} alt={user?.fullName} />
         </div>
       </div>
       <div className={`chat-bubble text-white ${bubbleBgColor} pb-2`}>

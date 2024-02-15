@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import * as RiIcon from "react-icons/ri";
 import { useSocketContext } from "../../../context/SocketProvider";
 import { useGetMessageById } from "../../../hooks/useMessage";
@@ -11,7 +11,7 @@ const MessageContainer = ({ user }) => {
   const { onlineUsers } = useSocketContext();
   const isOnline = onlineUsers.includes(user?._id);
 
-  const lastMessageRef = useRef();
+  const lastMessageRef = useRef<HTMLDivElement>();
 
   useEffect(() => {
     if (lastMessageRef.current) {
