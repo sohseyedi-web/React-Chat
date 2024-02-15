@@ -8,3 +8,19 @@ export type UserTypes = {
   createdAt?: Date;
   updatedAt?: Date;
 };
+
+export type DataMessageTypes = {
+  _id: string;
+  senderId: string;
+  receiverId: string;
+  message: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+};
+export type ConversationsTypes = {
+  _id: string;
+  messages: string[];
+  participants: string[];
+  createdAt?: Date;
+  updatedAt?: Date;
+};
