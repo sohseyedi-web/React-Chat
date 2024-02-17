@@ -1,9 +1,10 @@
+import { UserTypes } from "../utils/types";
 import http from "./http";
 
-export const signinUser = (data) => {
+export const signinUser = (data : UserTypes) => {
   return http.post("/auth/login", data).then((res) => res.data);
 };
-export const signupUser = (data) => {
+export const signupUser = (data : UserTypes) => {
   return http.post("/auth/signup", data).then((res) => res.data);
 };
 export const logout = () => {

@@ -1,8 +1,9 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import { getMessages, sendMessage } from "../services/messageService";
+import { SignUpError } from "../utils/types";
+import { getMessages, sendMessage } from "./../services/messageService";
 
-export const useGetMessageById = (id) => {
+export const useGetMessageById = (id: string) => {
   const { data, isLoading } = useQuery({
     queryKey: ["messages", id],
     queryFn: () => getMessages(id),
@@ -23,8 +24,8 @@ export const useSendMessageUser = () => {
         queryKey: ["messages"],
       });
     },
-    onError: (err) => {
-      toast.error(err?.response?.data?.error);
+    onError: (err: SignUpError) => {
+      toast.error(err?.response?.data.error);
     },
   });
 

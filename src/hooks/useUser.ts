@@ -8,6 +8,7 @@ import {
   getAllUsers,
   logout,
 } from "../services/authService";
+import { SignUpError } from "../utils/types";
 
 export const useSingUpUser = () => {
   const queryClient = useQueryClient();
@@ -17,8 +18,8 @@ export const useSingUpUser = () => {
       toast.success("ثبت نام موفق بود");
       queryClient.invalidateQueries({ queryKey: ["user-submit"] });
     },
-    onError: (error) => {
-      toast.error(error.response.data.error);
+    onError: (err: SignUpError) => {
+      toast.error(err?.response?.data.error);
     },
   });
 
@@ -32,8 +33,8 @@ export const useLoginUser = () => {
       toast.success("خوش اومدی");
       queryClient.invalidateQueries({ queryKey: ["user-submit"] });
     },
-    onError: (error) => {
-      toast.error(error.response.data.error);
+    onError: (err: SignUpError) => {
+      toast.error(err?.response?.data.error);
     },
   });
 
@@ -59,9 +60,8 @@ export const useGetAllUsers = () => {
     retry: false,
   });
 
-
   return { isLoading, data };
-}
+};
 
 export const useLogOut = () => {
   const queryClient = useQueryClient();
@@ -72,8 +72,8 @@ export const useLogOut = () => {
       queryClient.removeQueries();
       navigate("/", { replace: true });
     },
-    onError: (err) => {
-      toast.error(err?.response?.data?.message);
+    onError: (err: SignUpError) => {
+      toast.error(err?.response?.data?.error);
     },
   });
 

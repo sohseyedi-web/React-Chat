@@ -11,10 +11,10 @@ export type UserTypes = {
 
 export type DataMessageTypes = {
   _id: string;
-  senderId: string;
-  receiverId: string;
+  senderId?: string;
+  receiverId?: string;
   message: string;
-  createdAt: Date | undefined;
+  createdAt?: Date | undefined;
   updatedAt?: Date;
 };
 export type ConversationsTypes = {
@@ -23,4 +23,12 @@ export type ConversationsTypes = {
   participants: string[];
   createdAt?: Date;
   updatedAt?: Date;
+};
+
+export type SignUpError = {
+  response: {
+    data: {
+      error: string;
+    };
+  };
 };

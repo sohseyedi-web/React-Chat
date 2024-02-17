@@ -1,9 +1,12 @@
+import { DataMessageTypes } from "../utils/types";
 import http from "./http";
 
-export const sendMessage = ({ id, message }) => {
+
+
+export const sendMessage = ({ _id, message }: DataMessageTypes) => {
   return http
     .post(
-      `/messages/send/${id}`,
+      `/messages/send/${_id}`,
       { message },
       {
         headers: {
@@ -13,6 +16,6 @@ export const sendMessage = ({ id, message }) => {
     )
     .then((res) => res.data);
 };
-export const getMessages = (id) => {
+export const getMessages = (id: string) => {
   return http.get(`/messages/${id}`).then((res) => res.data);
 };

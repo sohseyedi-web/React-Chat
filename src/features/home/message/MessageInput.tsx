@@ -10,8 +10,8 @@ const MessageInput = ({ user }) => {
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!message.length) return;
-    const id = user?._id;
-    await sendMessages({ id, message });
+    const {_id} = user;
+    await sendMessages({ _id, message });
     setMessage("");
   };
 
