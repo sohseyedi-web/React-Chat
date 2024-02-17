@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm, type FieldValues } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useSingUpUser } from "../../hooks/useUser";
 import RadioInputGroup from "../../ui/RadioInputGroup";
@@ -16,7 +16,7 @@ const RegisterForm = ({ setActive }) => {
     watch,
   } = useForm();
 
-  const onSubmitForm = async (data: FieldValues) => {
+  const onSubmitForm = async (data) => {
     await createUser(data);
     navigate("/");
   };
@@ -94,13 +94,9 @@ const RegisterForm = ({ setActive }) => {
             className="font-bold cursor-pointer"
             onClick={() => setActive(false)}
           >
-            ثبت نام
+            میخواهم وارد شوم
           </span>
-          <span>حساب کاربری ندارید؟</span>
-        </div>
-        <div className="flex items-center justify-center gap-x-1">
-          <span className="font-bold cursor-pointer">ایجاد رمز جدید</span>
-          <span>رمز عبورتان را گم کرده‌اید؟</span>
+          <span className="cursor-pointer">نام کاربری دارم</span>
         </div>
       </div>
     </div>

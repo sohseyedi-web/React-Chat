@@ -17,7 +17,11 @@ const ProtectedRoutes = ({ children }: { children: React.ReactNode }) => {
       </div>
     );
 
-  if (user) return children;
+  if (user) {
+    return <>{children}</>;
+  } else {
+    return null;
+  }
 };
 
 export default ProtectedRoutes;

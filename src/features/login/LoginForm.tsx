@@ -1,5 +1,5 @@
 import React from "react";
-import { type FieldValues, useForm } from "react-hook-form";
+import {useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useLoginUser } from "../../hooks/useUser";
 import TextField from "../../ui/TextField";
@@ -13,7 +13,7 @@ const LoginForm = ({ setActive }) => {
     handleSubmit,
   } = useForm();
 
-  const onSubmitForm = async (data: FieldValues) => {
+  const onSubmitForm = async (data) => {
     await loginUser(data);
     navigate("/");
   };
@@ -49,14 +49,19 @@ const LoginForm = ({ setActive }) => {
       </form>
       <hr className="border-slate-300 dark:border-slate-700 my-3" />
       <div className="space-y-3">
+        
         <div className="flex items-center justify-center gap-x-1">
           <span
             className="font-bold cursor-pointer"
             onClick={() => setActive(true)}
           >
-            میخواهم وارد شوم
+            ثبت نام
           </span>
-          <span className="cursor-pointer">نام کاربری دارم</span>
+          <span>حساب کاربری ندارید؟</span>
+        </div>
+        <div className="flex items-center justify-center gap-x-1">
+          <span className="font-bold cursor-pointer">ایجاد رمز جدید</span>
+          <span>رمز عبورتان را گم کرده‌اید؟</span>
         </div>
       </div>
     </div>
