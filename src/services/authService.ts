@@ -1,10 +1,10 @@
-import { UserTypes } from "../utils/types";
+import { SignUser } from "../utils/types";
 import http from "./http";
 
-export const signinUser = (data : UserTypes) => {
+export const signinUser = (data : SignUser) => {
   return http.post("/auth/login", data).then((res) => res.data);
 };
-export const signupUser = (data : UserTypes) => {
+export const signupUser = (data : SignUser) => {
   return http.post("/auth/signup", data).then((res) => res.data);
 };
 export const logout = () => {

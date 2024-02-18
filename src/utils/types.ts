@@ -1,13 +1,21 @@
 export type UserTypes = {
   _id: string;
   profilePic: string;
-  name: string;
   username: string;
   fullName?: string;
   gender?: string;
   createdAt?: Date;
   updatedAt?: Date;
 };
+
+export type SignUser = {
+  username: string;
+  fullName?: string;
+  gender?: string;
+  password:string;
+  confirmPassword?:string;
+  _id:string;
+}
 
 export type DataMessageTypes = {
   _id: string;
