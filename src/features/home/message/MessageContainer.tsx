@@ -36,7 +36,7 @@ const MessageContainer = ({ user }) => {
       <div className="flex-1 overflow-y-auto scroll px-2" ref={lastMessageRef}>
         {!data?.length ? (
           <div className="flex justify-center h-screen items-center text-2xl font-semibold">
-            <span className="bg-gray-200 px-4 py-1 rounded-lg shadow">
+            <span className="bg-gray-200 px-4 py-1 rounded-lg shadow dark:bg-slate-700">
               ... هیچ پیامی وجود ندارد
             </span>
           </div>
