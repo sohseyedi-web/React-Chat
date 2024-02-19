@@ -18,6 +18,7 @@ const RegisterForm = ({ setActive }) => {
 
   const onSubmitForm = async (data) => {
     await createUser(data);
+    
     navigate("/");
   };
 
