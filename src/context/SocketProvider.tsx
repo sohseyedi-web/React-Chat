@@ -26,7 +26,7 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({
     let newSocket: Socket | undefined;
 
     if (user) {
-      newSocket = io("https://chat-app-nodejs-3421.onrender.com", {
+      newSocket = io("https://chat-app-nodejs-qwf9.onrender.com", {
         query: {
           userId: user?._id,
         },
